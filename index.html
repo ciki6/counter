@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<head>
+  <link rel="stylesheet" href="css/flipTimer.css" />
+  <style>
+    body {
+      background-color: #b8d6df;
+    }
+    .flipTimer {
+      margin: 100px auto 0;
+      width: 500px;
+    }
+  </style>
+
+  <script src="js/jquery-3.2.1.min.js"></script>
+  <script src="js/jquery.flipTimer.js"></script>
+
+  <script>
+    $(document).ready(function() {
+      //Callback works only with direction = "down"
+      $('#timer1').flipTimer({
+          direction: 'up'
+      });
+      $('#timer2').flipTimer({
+          direction: 'down',
+          date: 'July 20, 2017 23:15:00',
+          callback: function() {
+              alert('times up!');
+          }
+      });
+    });
+  </script>
+</head>
+<body>
+  <h1>NOW</h1>
+  <div class="flipTimer" id="timer1">
+    <div class="hours"></div>
+    <div class="minutes"></div>
+    <div class="seconds"></div>
+  </div>
+  <h1>Count Down</h1>
+  <div class="flipTimer" id="timer2">
+    <div class="hours"></div>
+    <div class="minutes"></div>
+    <div class="seconds"></div>
+  </div>
+
+</body>
+</html>
