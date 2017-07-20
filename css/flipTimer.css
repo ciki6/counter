@@ -96,7 +96,8 @@
 .flipTimer .seconds,
 .flipTimer .minutes,
 .flipTimer .hours,
-.flipTimer .days {
+.flipTimer .days,
+.flipTimer .data{
     height: 100%;
     display: inline;
 }
@@ -105,8 +106,6 @@
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
     border: 1px solid #111111;
-    width: 70px;
-    height: 100%;
     display: inline-block;
     position: relative;
     margin: 0 1px;

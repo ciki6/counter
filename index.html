@@ -7,41 +7,88 @@
     }
     .flipTimer {
       margin: 100px auto 0;
-      width: 500px;
+      width: 100%;
     }
   </style>
 
   <script src="js/jquery-3.2.1.min.js"></script>
   <script src="js/jquery.flipTimer.js"></script>
+  <script src="js/count.js"></script>
 
   <script>
     $(document).ready(function() {
       //Callback works only with direction = "down"
-      $('#timer1').flipTimer({
-          direction: 'up'
-      });
-      $('#timer2').flipTimer({
-          direction: 'down',
-          date: 'July 20, 2017 23:15:00',
-          callback: function() {
-              alert('times up!');
-          }
-      });
+//      $('#timer1').flipTimer({
+//          direction: 'up',
+//          type: 'date'
+//      });
+//      $('#timer2').flipTimer({
+//          type: 'date',
+//          direction: 'down',
+//          date: 'July 22, 2017 9:42:00',
+//          callback: function() {
+//              alert('times up!');
+//          }
+//      });
+
+//        $('#timer3').flipTimer({
+//            direction: 'up',
+//            type: 'number',
+//            startVal: '01',
+//            endVal: '10',
+//            height: '100px',
+//            width: '70px',
+//            fontColor: '#666FFF',
+//            fontSize: '90px'
+//        });
+
+        $('.submit').click (function () {
+            console.log('add');
+            $('#timer3').flipTimer({
+                type: 'number',
+                startVal: $('#start').val(),
+                endVal: $('#end').val(),
+                height: '100px',
+                width: '70px',
+                fontColor: $('#fontColor').val(),
+                fontSize: '90px',
+                direction: $('#start').val() - $('#end').val()>=0?'down':'up'
+            });
+        });
+//
+        $('.clear').click(function () {
+            console.log('clear');
+            $('#timer3').find('.data').empty();
+        });
     });
+
+
   </script>
 </head>
 <body>
-  <h1>NOW</h1>
-  <div class="flipTimer" id="timer1">
-    <div class="hours"></div>
-    <div class="minutes"></div>
-    <div class="seconds"></div>
-  </div>
-  <h1>Count Down</h1>
-  <div class="flipTimer" id="timer2">
-    <div class="hours"></div>
-    <div class="minutes"></div>
-    <div class="seconds"></div>
+  <!--<h1>NOW</h1>-->
+  <!--<div class="flipTimer" id="timer1">-->
+    <!--<div class="days"></div>D-->
+    <!--<div class="hours"></div>H-->
+    <!--<div class="minutes"></div>M-->
+    <!--<div class="seconds"></div>S-->
+  <!--</div>-->
+  <!--<h1>Count Down</h1>-->
+
+  <!--<div class="flipTimer" id="timer2">-->
+    <!--<div class="days"></div>D-->
+    <!--<div class="hours"></div>H-->
+    <!--<div class="minutes"></div>M-->
+    <!--<div class="seconds"></div>S-->
+  <!--</div>-->
+  <input type="text" id="start" placeholder="start value">
+  <input type="text" id="end" placeholder="end value">
+  <input type="text" id="fontColor" placeholder="text-color">
+  <input type="button" class="submit" value="submit">
+  <input type="button" class="clear" value="clear">
+  <h1>number</h1>
+  <div class="flipTimer" id="timer3">
+    <div class="data"></div>
   </div>
 
 </body>
